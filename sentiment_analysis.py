@@ -9,6 +9,7 @@ def analyze_polarity(text):
     # Preprocess the text with spaCy
     doc = nlp(text)
 
+    # Perform cleaning actions
     clean_token = []
     for token in doc:
       if not (token.is_stop):   
@@ -28,7 +29,7 @@ df = pd.read_csv("amazon_product_reviews.csv")
 
 # Retrieve 'reviews.text' column
 reviews_data = df['reviews.text']
-print(reviews_data.head(100))
+print(reviews_data.head())
 
 # Remove missing values from column
 clean_data = reviews_data.dropna()
@@ -36,6 +37,7 @@ clean_data = reviews_data.dropna()
 test_data = clean_data[0]
 polarity_score = analyze_polarity(test_data)
 
+# Assign polarity score
 if polarity_score > 0:
     sentiment = 'positive'
 elif polarity_score < 0:
