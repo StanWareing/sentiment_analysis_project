@@ -45,5 +45,13 @@ else:
  
 print(f"Text: {test_data}\nPolarity score: {polarity_score}\nSentiment: {sentiment}")
 
+# Similarity review
+first_review = nlp(reviews_data[0])
+second_review = nlp(reviews_data[14])
+
+print("Reviews : ")
+print(first_review.similarity(second_review))
+
+# The reviews appear to be reasonably similar
 
  
